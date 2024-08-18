@@ -24,12 +24,16 @@ function App() {
     setContacts(prev => [...prev, { ...contact, id: nanoid() }]);
   };
 
+  const handleDeleteContact = (id) => {
+    setContacts(prev => prev.filter(contact => contact.id !== id));
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm handleAddContact={handleAddContact}/>
       <Searchbox filter={filter} setFilter={setFilter} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList contacts={filteredContacts} handleDeleteContact={handleDeleteContact}/>
     </div>
   );
 }
