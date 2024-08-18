@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 import { nanoid } from "nanoid";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactList from "./components/ContactList/ContactList";
+import ContactForm from "./components/ContactForm/ContactForm.jsx";
+import SearchBox from "./components/SearchBox/SearchBox.jsx";
+import ContactList from "./components/ContactList/ContactList.jsx";
 
 function App() {
   const initialContacts = [
