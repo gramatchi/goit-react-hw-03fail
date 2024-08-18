@@ -1,7 +1,15 @@
-const Searchbox = () => {
+const Searchbox = ({ filter, setFilter }) => {
   return (
-    <div>Searchbox</div>
-  )
-}
+    <div>
+      <h2>Find contacts by name</h2>
+      <input
+        value={filter}
+        onChange={(e) => setFilter(e.target.value)}
+        type="text"
+        placeholder="Enter name"
+      />
+    </div>
+  );
+};
 
-export default Searchbox
+export default Searchbox;
