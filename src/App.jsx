@@ -3,6 +3,7 @@ import "./App.css";
 import ContactForm from "./components/ContactForm/ContactForm";
 import ContactList from "./components/ContactList/ContactList";
 import Searchbox from "./components/SearchBox/Searchbox";
+import { nanoid } from "nanoid";
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -18,10 +19,15 @@ function App() {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+
+  const handleAddContact = (contact) => {
+    setContacts(prev => [...prev, { ...contact, id: nanoid() }]);
+  };
+
   return (
     <div>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm handleAddContact={handleAddContact}/>
       <Searchbox filter={filter} setFilter={setFilter} />
       <ContactList contacts={filteredContacts} />
     </div>
